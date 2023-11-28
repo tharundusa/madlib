@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mad Libs Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: papayawhip;
+        text-align: center;
+        margin: 50px;
+      }
+
+      button {
+        background-color: gainsboro;
+        cursor: pointer;
+      }
+
+      form {
+        max-width: 600px; /* Increase the max-width for better spacing */
+        height: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .flex-container {
+        display: flex;
+        gap: 10px; /* Adjust the gap as needed */
+        flex-wrap: wrap; /* Allow items to wrap onto the next line if needed */
+      }
+
+      .flex-item {
+        flex: 1; /* Expand to take available space */
+        display: flex;
+        flex-direction: column;
+      }
+
+      .flex-item label {
+        margin-bottom: 5px; /* Optional: Adds some spacing between label and input */
+      }
+
+      .flex-item input {
+        flex: 1; /* Expand to take available space */
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      .flex-item button {
+        margin-top: 10px; /* Optional: Adds some spacing between input and button */
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .flex-item label {
+        margin-bottom: 5px; /* Optional: Adds some spacing between label and input */
+        color: blue; /* Change the color to your desired value */
+      }
+      .mad-lib-story {
+        color: black;
+        margin-top: 300px;
+        width: 500px;
+        padding: 50px;
+        margin: 20px 350px;
+        font-family: "Arial", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <center><h1>MAD LIB</h1></center>
+    <form class="flex-container" action="/itc505/homework/lab7" method="post">
+      <div class="flex-item">
+        <label for="verb_ing">Verb ending in "ing":</label>
+        <input type="text" id="verb_ing" name="verb_ing" value="" />
+        <button type="button" onclick="generateRandomWord1()">
+          Random Word
+        </button>
+      </div>
+      <div class="flex-item">
+        <label for="noun">Noun:</label>
+        <input type="text" id="noun" name="noun" value="" />
+        <button type="button" onclick="generateRandomWord2()">
+          Random Word
+        </button>
+      </div>
+      <div class="flex-item">
+        <label for="part_of_body">Part of the body:</label>
+        <input type="text" id="part_of_body" name="part_of_body" value="" />
+        <button type="button" onclick="generateRandomWord3()">
+          Random Word
+        </button>
+      </div>
+      <div class="flex-item">
+        <label for="verb">Verb:</label>
+        <input type="text" id="verb" name="verb" value="" />
+        <button type="button" onclick="generateRandomWord4()">
+          Random Word
+        </button>
+      </div>
+
+      <div class="flex-item">
+        <label for="animal">Animal:</label>
+        <input type="text" id="animal" name="animal" value="" />
+        <button type="button" onclick="generateRandomWord5()">
+          Random Word
+        </button>
+      </div>
+      <div class="flex-item">
+        <label for="verb_ed">Verb ending in "ed":</label>
+        <input type="text" id="verb_ed" name="verb_ed" value="" />
+        <button type="button" onclick="generateRandomWord6()">
+          Random Word
+        </button>
+      </div>
+
+      <button type="button" onclick="generateMadLib()">Generate Mad Lib</button>
+    </form>
+    <div class="mad-lib-story"></div>
+    <script>
+      function generateRandomWord1() {
+        // verbs ending with ing.
+        const verbsEndingWithIng = [
+          "Running",
+          "Jumping",
+          "Singing",
+          "Laughing",
+          "Dancing",
+          "Walking",
+          "Swimming",
+          "Climbing",
+          "Reading",
+          "Sleeping",
+        ];
+
+        const verbsIngInput = document.getElementById("verb_ing");
+
+        const randomIndex = Math.floor(
+          Math.random() * verbsEndingWithIng.length
+        );
+
+        verbsIngInput.value = verbsEndingWithIng[randomIndex];
+      }
+
+      function generateRandomWord2() {
+        // nouns
+        const nouns = [
+          "Dog",
+          "Cat",
+          "Tree",
+          "Mountain",
+          "River",
+          "Book",
+          "Computer",
+          "Friend",
+          "City",
+          "Sun",
+        ];
+
+        const nounsInput = document.getElementById("noun");
+
+        const randomIndex = Math.floor(Math.random() * nouns.length);
+
+        nounsInput.value = nouns[randomIndex];
+      }
+
+      function generateRandomWord3() {
+        // parts of the body.
+        const partsOfTheBody = [
+          "Head",
+          "Shoulder",
+          "Knee",
+          "Toe",
+          "Arm",
+          "Leg",
+          "Hand",
+          "Foot",
+          "Neck",
+          "Back",
+        ];
+
+        const partsInput = document.getElementById("part_of_body");
+
+        const randomIndex = Math.floor(Math.random() * partsOfTheBody.length);
+
+        partsInput.value = partsOfTheBody[randomIndex];
+      }
+
+      function generateRandomWord4() {
+        // verbs
+        const verbsNotEndingWithIng = [
+          "Run",
+          "Jump",
+          "Laugh",
+          "Dance",
+          "Walk",
+          "Swim",
+          "Climb",
+          "Read",
+          "Sleep",
+        ];
+
+        const verbsInput = document.getElementById("verb");
+
+        const randomIndex = Math.floor(
+          Math.random() * verbsNotEndingWithIng.length
+        );
+
+        verbsInput.value = verbsNotEndingWithIng[randomIndex];
+      }
+
+      function generateRandomWord5() {
+        // Array of random words of animals
+        const randomWords = [
+          "Elephant",
+          "Giraffe",
+          "Lion",
+          "Monkey",
+          "Penguin",
+          "Kangaroo",
+          "Zebra",
+          "Tiger",
+          "Panda",
+          "Koala",
+        ];
+
+        const animalInput = document.getElementById("animal");
+
+        const randomIndex = Math.floor(Math.random() * randomWords.length);
+
+        animalInput.value = randomWords[randomIndex];
+      }
+
+      function generateRandomWord6() {
+        const verbsEndingWithEd = [
+          "Jumped",
+          "Laughed",
+          "Climbed",
+          "Walked",
+          "Talked",
+          "Played",
+          "Sailed",
+          "Visited",
+          "Worked",
+          "Cooked",
+        ];
+
+        const verbsEndingWithEdInput = document.getElementById("verb_ed");
+
+        const randomIndex = Math.floor(
+          Math.random() * verbsEndingWithEd.length
+        );
+
+        verbsEndingWithEdInput.value = verbsEndingWithEd[randomIndex];
+        console.log(verbsEndingWithEd.value);
+      }
+
+      function generateMadLib() {
+        // Get values from the input fields
+        const verbIng = document.getElementById("verb_ing").value;
+        const noun = document.getElementById("noun").value;
+        const partOfBody = document.getElementById("part_of_body").value;
+        const verb = document.getElementById("verb").value;
+        const animal = document.getElementById("animal").value;
+        const verbEd = document.getElementById("verb_ed").value;
+
+        if (
+          verbIng == "" ||
+          noun == "" ||
+          partOfBody == "" ||
+          verb == "" ||
+          animal == "" ||
+          verbEd == ""
+        ) {
+          alert("Please select all random words.");
+        } else {
+          // Create an object with the data
+          const data = {
+            verbIng,
+            noun,
+            partOfBody,
+            verb,
+            animal,
+            verbEd,
+          };
+          // Make a POST request to the server
+          // Make a POST request to the server
+          fetch("/itc505/homework/lab7", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(data),
+          })
+            .then((response) => response.text())
+            .then((result) => {
+              console.log(result);
+              // Display the HTML response on the page
+              const madLibDiv = document.querySelector(".mad-lib-story");
+              madLibDiv.innerHTML = result; // Use innerHTML to insert HTML content
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("An error occurred while generating the Mad Lib.");
+            });
+
+          // Reset input values
+          document.getElementById("verb_ing").value = "";
+          document.getElementById("noun").value = "";
+          document.getElementById("part_of_body").value = "";
+          document.getElementById("verb").value = "";
+          document.getElementById("animal").value = "";
+          document.getElementById("verb_ed").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
